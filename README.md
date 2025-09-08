@@ -100,12 +100,10 @@ Extend Task 1 to AFHQ image dataset.
 ```
 python train.py --mode {BETA_SCHEDULING} --predictor {PREDICTOR}
 ```
-```
+
 --mode: linear, quadratic, cosine
-```
-```
 --predictor: noise, x0, mean
-```
+
 **Sampling**
 ```
 python sampling.py --ckpt_path {CKPT} --save_dir {SAVE}
