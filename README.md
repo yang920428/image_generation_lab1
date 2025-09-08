@@ -1,4 +1,3 @@
-<img width="622" height="52" alt="image" src="https://github.com/user-attachments/assets/9534eeab-9c64-4878-8613-5bf3e6338051" /><div align=center>
   <h1>
   Denoising Diffusion Probabilistic Models (DDPM)  
   </h1>
