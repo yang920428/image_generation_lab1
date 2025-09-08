@@ -18,13 +18,13 @@
 ---
 
 ## 📘 Abstract
-In this programming assignment, you will implement the **Denoising Diffusion Probabilistic Model (DDPM)**, a fundamental generative model that powers modern diffusion-based methods such as Stable Diffusion.  
+![Lab1](./assets/images/lab1.png)
 
+In this programming assignment, you will implement the **Denoising Diffusion Probabilistic Model (DDPM)**, a fundamental generative model that powers modern diffusion-based methods such as Stable Diffusion.  
 We begin with a simple 2D toy dataset (Swiss Roll) to understand the forward and reverse diffusion processes.  
 Then, we extend the pipeline to real images (AFHQ dataset), training a DDPM to generate animal images and evaluate performance using the FID metric.
 
-![Lab1](./assets/images/lab1.png)
-
+📄 [Assignment Instructions (PDF)](./assets/Lab1-DDPM.pdf)
 ---
 
 ## ⚙️ Setup
