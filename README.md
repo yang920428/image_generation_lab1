@@ -38,6 +38,7 @@ pip install -r requirements.txt
 NOTE: Please make sure you start training early — Task 2 requires 6+ hours per run.
 
 
+---
 
 📂 Code Structure
 .
@@ -57,6 +58,8 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
         ├── measure_fid.py
         └── afhq_inception.ckpt
 
+
+---
 📝 Task 1 – Swiss Roll
 
 Implement and test DDPM on a 2D dataset.
