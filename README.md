@@ -25,6 +25,7 @@ We begin with a simple 2D toy dataset (Swiss Roll) to understand the forward and
 Then, we extend the pipeline to real images (AFHQ dataset), training a DDPM to generate animal images and evaluate performance using the FID metric.
 
 📄 [Assignment Instructions (PDF)](./assets/Lab1-DDPM.pdf)
+
 ---
 
 ## ⚙️ Setup
