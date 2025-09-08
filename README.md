@@ -23,7 +23,7 @@ In this programming assignment, you will implement the **Denoising Diffusion Pro
 We begin with a simple 2D toy dataset (Swiss Roll) to understand the forward and reverse diffusion processes.  
 Then, we extend the pipeline to real images (AFHQ dataset), training a DDPM to generate animal images and evaluate performance using the FID metric.
 
-![Loss Curve](./assets/images/lab1.png)
+![Lab1](./assets/images/lab1.png)
 
 ---
 
