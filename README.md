@@ -66,46 +66,34 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
 Implement and test DDPM on a 2D dataset.
 
 **Key TODOs:**
-
-SimpleNet (network.py)
-
-q_sample, p_sample, p_sample_loop (ddpm.py)
-
-compute_loss (ddpm.py)
+- SimpleNet (network.py)
+- q_sample, p_sample, p_sample_loop (ddpm.py)
+- compute_loss (ddpm.py)
 
 **Report:**
 
-Visualization of q_sample
-
-Training loss curve
-
-Sampling results
+- Visualization of q_sample
+- Training loss curve
+- Sampling results
 
 **📝 Task 2 – Image Generation**
 
 Extend Task 1 to AFHQ image dataset.
 
 **Key TODOs:**
-
-add_noise, step, beta scheduling (scheduler.py)
-
-Loss functions & predictors (model.py)
+- `add_noise`, `step`, `beta scheduling` (**scheduler.py**)  
+- Loss functions & predictors (**model.py**)  
 
 **Experiments:**
-
-Train with different beta **schedules**: **linear, quadratic, cosine**
-
-Compare **predictors**: **noise, x₀, mean**
-
-Evaluate with FID score
-
+- Train with different beta **schedules**: **linear, quadratic, cosine**  
+- Compare **predictors**: **noise, x₀, mean**  
+- Evaluate with FID score
+  
 **Report:**
 
-Generated trajectory figures
-
-Results of different predictors
-
-Screenshot of best FID
+- Generated trajectory figures
+- Results of different predictors
+- Screenshot of best FID
 
 🚀 Usage
 **Training**
