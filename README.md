@@ -24,7 +24,8 @@ In this programming assignment, you will implement the **Denoising Diffusion Pro
 We begin with a simple 2D toy dataset (Swiss Roll) to understand the forward and reverse diffusion processes.  
 Then, we extend the pipeline to real images (AFHQ dataset), training a DDPM to generate animal images and evaluate performance using the FID metric.
 
-📄 [Assignment Instructions (PDF)](./assets/Lab1-DDPM.pdf)
+- [Assignment Instructions (PDF)](./assets/Lab1-DDPM.pdf)
+- [Denoising Diffusion Probabilistic Models (DDPM) – arXiv](https://arxiv.org/pdf/2006.11239)
 
 ---
 
@@ -73,12 +74,6 @@ Implement and test DDPM on a 2D dataset.
 - q_sample, p_sample, p_sample_loop (ddpm.py)
 - compute_loss (ddpm.py)
 
-**Report:**
-
-- Visualization of q_sample
-- Training loss curve
-- Sampling results
-
 <h2><b>📝Task 2 – Image Generation</b></h2>
 
 Extend Task 1 to AFHQ image dataset.
@@ -91,12 +86,6 @@ Extend Task 1 to AFHQ image dataset.
 - Train with different beta **schedules**: **linear, quadratic, cosine**  
 - Compare **predictors**: **noise, x₀, mean**  
 - Evaluate with FID score
-  
-**Report:**
-
-- Generated trajectory figures
-- Results of different predictors
-- Screenshot of best FID
 
 🚀 Usage
 **Training**
@@ -137,5 +126,4 @@ Example:
 DDPM Paper
 
 What are Diffusion Models? – Lilian Weng
-
 Score-based Generative Models
