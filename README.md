@@ -33,7 +33,7 @@ Create a `conda` environment and install dependencies:
 conda create -n lab1-ddpm python=3.10 -y
 conda activate lab1-ddpm
 pip install -r requirements.txt
-
+```
 
 NOTE: Please make sure you start training early — Task 2 requires 6+ hours per run.
 
@@ -41,6 +41,7 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
 ---
 
 📂 Code Structure
+```
 .
 ├── 2d_plot_diffusion_todo        (Task 1: Swiss Roll)
 │   ├── dataset.py                # Toy dataset (Swiss Roll, etc.)
@@ -58,7 +59,7 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
         ├── measure_fid.py
         └── afhq_inception.ckpt
 
-
+```
 ---
 📝 Task 1 – Swiss Roll
 
