@@ -61,7 +61,7 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
 
 ```
 ---
-**📝 Task 1 – Swiss Roll**
+<h2><b>📝 Task 1 – Swiss Roll</b></h2>
 
 Implement and test DDPM on a 2D dataset.
 
@@ -76,7 +76,7 @@ Implement and test DDPM on a 2D dataset.
 - Training loss curve
 - Sampling results
 
-**📝 Task 2 – Image Generation**
+<h2><b>📝Task 2 – Image Generation</b></h2>
 
 Extend Task 1 to AFHQ image dataset.
 
@@ -118,10 +118,8 @@ python fid/measure_fid.py @GT_IMG_DIR @GEN_IMG_DIR
 📦 Submission
 
 Submit a single zip file {ID}_lab1.zip including:
-
-Report (report.pdf)
-
-Code (without checkpoints and dataset)
+- Report (report.pdf)
+- Code (without checkpoints and dataset)
 
 Example:
 ```
