@@ -1,3 +1,4 @@
+<div align=center>
   <h1>
   Denoising Diffusion Probabilistic Models (DDPM)  
   </h1>
@@ -92,7 +93,7 @@ Extend Task 1 to AFHQ image dataset.
 python train.py --mode {BETA_SCHEDULING} --predictor {PREDICTOR}
 ```
 
---mode: linear, quadratic, cosine
+--mode: linear, quad, cosine
 --predictor: noise, x0, mean
 
 **Sampling**
