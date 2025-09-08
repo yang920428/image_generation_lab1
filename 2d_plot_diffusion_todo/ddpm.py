@@ -57,7 +57,7 @@ class DiffusionModule(nn.Module):
 
     def __init__(self, network: nn.Module, var_scheduler: BaseScheduler):
         super().__init__()
-        self.network = network
+        self.network = network ### predict noise
         self.var_scheduler = var_scheduler
 
     @property
@@ -97,13 +97,11 @@ class DiffusionModule(nn.Module):
     def p_sample(self, xt, t):
         """
         One step denoising function of DDPM: x_t -> x_{t-1}.
-
         Input:
             xt (`torch.Tensor`): samples at arbitrary timestep t.
             t (`torch.Tensor`): current timestep in a reverse process.
         Ouptut:
             x_t_prev (`torch.Tensor`): one step denoised sample. (= x_{t-1})
-
         """
         ######## TODO ########
         # DO NOT change the code outside this part.
@@ -113,10 +111,21 @@ class DiffusionModule(nn.Module):
         eps_factor = (1 - extract(self.var_scheduler.alphas, t, xt)) / (
             1 - extract(self.var_scheduler.alphas_cumprod, t, xt)
         ).sqrt()
-        eps_theta = self.network(xt, t)
 
-        x_t_prev = xt
+        beta_t      = extract(self.var_scheduler.betas,           t, xt)         # β_t
+        alpha_t     = extract(self.var_scheduler.alphas,          t, xt)         # α_t = 1 - β_t
+        alpha_bar_t = extract(self.var_scheduler.alphas_cumprod,  t, xt)         # \bar{α}_t
+        t_prev      = (t - 1).clamp(min=0)
+        alpha_bar_t_prev = extract(self.var_scheduler.alphas_cumprod, t_prev, xt) # \bar{α}_{t-1}
 
+        # 1. predict noise
+        
+        # 2. Posterior mean
+        
+        # 3. Posterior variance
+        
+        # 4. Reverse step
+        
         #######################
         return x_t_prev
 
@@ -133,8 +142,9 @@ class DiffusionModule(nn.Module):
         ######## TODO ########
         # DO NOT change the code outside this part.
         # sample x0 based on Algorithm 2 of DDPM paper.
-        x0_pred = torch.zeros(shape).to(self.device)
-
+        xt = torch.randn(shape).to(self.device)
+        x0_pred = None
+        
         ######################
         return x0_pred
 
@@ -205,7 +215,6 @@ class DiffusionModule(nn.Module):
     def compute_loss(self, x0):
         """
         The simplified noise matching loss corresponding Equation 14 in DDPM paper.
-
         Input:
             x0 (`torch.Tensor`): clean data
         Output:
@@ -215,13 +224,20 @@ class DiffusionModule(nn.Module):
         # DO NOT change the code outside this part.
         # compute noise matching loss.
         batch_size = x0.shape[0]
+        
+        # 1) random choose timestep
         t = (
             torch.randint(0, self.var_scheduler.num_train_timesteps, size=(batch_size,))
             .to(x0.device)
             .long()
         )
-
-        loss = x0.mean()
+        # 2) get GT noise, and use q_sample to get x_t
+        
+        # 3) predict noise 
+        
+        # 4) MSE loss (eps, eps_pred)
+        
+        loss = None
 
         ######################
         return loss
