@@ -34,8 +34,8 @@ Then, we extend the pipeline to real images (AFHQ dataset), training a DDPM to g
 ### Environment
 Create a `conda` environment and install dependencies:
 ```bash
-conda create -n lab1-ddpm python=3.10 -y
-conda activate lab1-ddpm
+conda create -n ddpm python=3.9 -y
+conda activate ddpm
 pip install -r requirements.txt
 ```
 
