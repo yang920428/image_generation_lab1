@@ -1,4 +1,4 @@
-<div align=center>
+<img width="622" height="52" alt="image" src="https://github.com/user-attachments/assets/9534eeab-9c64-4878-8613-5bf3e6338051" /><div align=center>
   <h1>
   Denoising Diffusion Probabilistic Models (DDPM)  
   </h1>
@@ -98,7 +98,7 @@ python train.py --mode {BETA_SCHEDULING} --predictor {PREDICTOR}
 
 **Sampling**
 ```
-python sampling.py --ckpt_path {CKPT} --save_dir {SAVE}
+python sampling.py --ckpt_path {CKPT} --save_dir {SAVE} --mode {BETA_SCHEDULING} --predictor {PREDICTOR} 
 ```
 
 **Evaluation**
