@@ -121,9 +121,3 @@ Example:
  └── image_diffusion_todo/
 ```
 
-📚 References
-
-DDPM Paper
-
-What are Diffusion Models? – Lilian Weng
-Score-based Generative Models
