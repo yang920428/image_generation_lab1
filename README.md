@@ -47,7 +47,7 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
 │   ├── dataset.py                # Toy dataset (Swiss Roll, etc.)
 │   ├── network.py                # TODO: SimpleNet implementation
 │   ├── ddpm.py                   # TODO: Forward & reverse process
-│   └── ddpm_tutorial.py          # Training & evaluation script
+│   └── ddpm_tutorial.ipynb          # Training & evaluation script
 │
 └── image_diffusion_todo          (Task 2: Image Generation)
     ├── dataset.py                # AFHQ dataset loader
