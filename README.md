@@ -61,11 +61,11 @@ NOTE: Please make sure you start training early — Task 2 requires 6+ hours per
 
 ```
 ---
-📝 Task 1 – Swiss Roll
+**📝 Task 1 – Swiss Roll**
 
 Implement and test DDPM on a 2D dataset.
 
-Key TODOs:
+**Key TODOs:**
 
 SimpleNet (network.py)
 
@@ -73,7 +73,7 @@ q_sample, p_sample, p_sample_loop (ddpm.py)
 
 compute_loss (ddpm.py)
 
-Report:
+**Report:**
 
 Visualization of q_sample
 
@@ -81,25 +81,25 @@ Training loss curve
 
 Sampling results
 
-📝 Task 2 – Image Generation
+**📝 Task 2 – Image Generation**
 
 Extend Task 1 to AFHQ image dataset.
 
-Key TODOs:
+**Key TODOs:**
 
 add_noise, step, beta scheduling (scheduler.py)
 
 Loss functions & predictors (model.py)
 
-Experiments:
+**Experiments:**
 
-Train with different beta schedules: linear, quadratic, cosine
+Train with different beta **schedules**: **linear, quadratic, cosine**
 
-Compare predictors: noise, x₀, mean
+Compare **predictors**: **noise, x₀, mean**
 
 Evaluate with FID score
 
-Report:
+**Report:**
 
 Generated trajectory figures
 
@@ -108,20 +108,26 @@ Results of different predictors
 Screenshot of best FID
 
 🚀 Usage
-Training
+**Training**
+```
 python train.py --mode {BETA_SCHEDULING} --predictor {PREDICTOR}
-
-
+```
+```
 --mode: linear, quadratic, cosine
-
+```
+```
 --predictor: noise, x0, mean
-
-Sampling
+```
+**Sampling**
+```
 python sampling.py --ckpt_path {CKPT} --save_dir {SAVE}
+```
 
-Evaluation
+**Evaluation**
+```
 python dataset.py   # Run once to prepare AFHQ eval set
 python fid/measure_fid.py @GT_IMG_DIR @GEN_IMG_DIR
+```
 
 📦 Submission
 
@@ -132,11 +138,12 @@ Report (report.pdf)
 Code (without checkpoints and dataset)
 
 Example:
-
+```
 412551014_lab1.zip
  ├── report.pdf
  ├── 2d_plot_diffusion_todo/
  └── image_diffusion_todo/
+```
 
 📚 References
 
