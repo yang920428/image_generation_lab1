@@ -3,7 +3,7 @@
   Denoising Diffusion Probabilistic Models (DDPM)  
   </h1>
   <p>
-    <b>NYCU: Image and Video Generation (2025 Spring)</b><br>
+    <b>NYCU: Image and Video Generation (2025 Fall)</b><br>
     Programming Assignment 1
   </p>
 </div> 
