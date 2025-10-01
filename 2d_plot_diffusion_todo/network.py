@@ -83,7 +83,21 @@ class SimpleNet(nn.Module):
 
         ######## TODO ########
         # DO NOT change the code outside this part.
+        self.time_embedding = TimeEmbedding(hidden_size=dim_hids[0])
+        layers = []
 
+        # 建立層
+        layers = []
+        input_dim = dim_in + dim_hids[0]  # 輸入 + 時間嵌入
+        for dim_hid in dim_hids:
+            layers.append(nn.Linear(input_dim, dim_hid))
+            layers.append(nn.ReLU())
+            input_dim = dim_hid
+
+        # 最後一層輸出噪聲
+        layers.append(nn.Linear(dim_hids[-1], dim_out))
+
+        self.net = nn.Sequential(*layers)
         ######################
         
     def forward(self, x: torch.Tensor, t: torch.Tensor):
@@ -97,6 +111,17 @@ class SimpleNet(nn.Module):
         """
         ######## TODO ########
         # DO NOT change the code outside this part.
+        # 時間嵌入
+        t_emb = self.time_embedding(t)
 
+        # 如果 batch 不對齊，expand
+        if t_emb.shape[0] != x.shape[0]:
+            t_emb = t_emb.expand(x.shape[0], -1)
+
+        # 拼接輸入與時間嵌入
+        x = torch.cat([x, t_emb], dim=-1)
+
+        # network 預測 noise
+        x = self.net(x)
         ######################
         return x

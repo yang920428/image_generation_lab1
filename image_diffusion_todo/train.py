@@ -175,7 +175,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--train_num_steps",
         type=int,
-        default=100000, #50000, #100000
+        default=75000, #50000, #100000
         help="the number of model training steps.",
     )
     parser.add_argument("--warmup_steps", type=int, default=200)

@@ -87,8 +87,11 @@ class DiffusionModule(nn.Module):
         # DO NOT change the code outside this part.
         # Compute xt.
         alphas_prod_t = extract(self.var_scheduler.alphas_cumprod, t, x0)
-        xt = x0
+        # xt = x0
+        sqrt_alphas_prod_t = torch.sqrt(alphas_prod_t)
+        sqrt_one_minus_alphas_prod_t = torch.sqrt(1.0 - alphas_prod_t)
 
+        xt = sqrt_alphas_prod_t * x0 + sqrt_one_minus_alphas_prod_t * noise
         #######################
 
         return xt
@@ -119,13 +122,16 @@ class DiffusionModule(nn.Module):
         alpha_bar_t_prev = extract(self.var_scheduler.alphas_cumprod, t_prev, xt) # \bar{α}_{t-1}
 
         # 1. predict noise
-        
+        eps_pred = self.network(xt, t) 
         # 2. Posterior mean
-        
+        mean = (1.0 / torch.sqrt(alpha_t)) * (
+            xt - eps_factor * eps_pred
+        )
         # 3. Posterior variance
-        
+        posterior_var = beta_t * (1.0 - alpha_bar_t_prev) / (1.0 - alpha_bar_t)
         # 4. Reverse step
-        
+        noise = torch.randn_like(xt) if (t > 0).all() else torch.zeros_like(xt)
+        x_t_prev = mean + torch.sqrt(posterior_var) * noise
         #######################
         return x_t_prev
 
@@ -143,8 +149,10 @@ class DiffusionModule(nn.Module):
         # DO NOT change the code outside this part.
         # sample x0 based on Algorithm 2 of DDPM paper.
         xt = torch.randn(shape).to(self.device)
-        x0_pred = None
-        
+        # x0_pred = None
+        for t in reversed(range(self.var_scheduler.num_train_timesteps)):
+            xt = self.p_sample(xt, torch.tensor([t], device=self.device))
+        x0_pred = xt
         ######################
         return x0_pred
 
@@ -232,12 +240,12 @@ class DiffusionModule(nn.Module):
             .long()
         )
         # 2) get GT noise, and use q_sample to get x_t
-        
+        eps = torch.randn_like(x0)
+        xt = self.q_sample(x0, t, noise=eps)
         # 3) predict noise 
-        
+        eps_pred = self.network(xt, t)
         # 4) MSE loss (eps, eps_pred)
-        
-        loss = None
+        loss = F.mse_loss(eps_pred, eps)
 
         ######################
         return loss
